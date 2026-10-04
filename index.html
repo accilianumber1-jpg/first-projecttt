@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny World</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, sans-serif;
+      background: #f4f4f4;
+      transition: background 0.4s ease;
+    }
+
+    .world {
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+	
+	#question {
+  display: none;
+    }
+
+    #question,
+    #sureQuestion {
+  display: none;
+    }
+	
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <main class="world">
+    <h1 id="title">dont click.</h1>
+    <p id="message">there is nothing here.</p>
+    <button id="button">Click me</button>
+	
+	
+	<div id="question">
+  <p>do you love me?</p>
+
+  <button id="yesButton">YES</button>
+  <button id="noButton">NO</button>
+</div>
+    <div id="sureQuestion">
+  <p>Are you sure?</p>
+
+  <button id="twentyFive">25%</button>
+  <button id="fifty">50%</button>
+  <button id="oneHundred">100%</button>
+</div>
+  </main>
+
+  <script>
+    const button = document.getElementById("button");
+const title = document.getElementById("title");
+const message = document.getElementById("message");
+const question = document.getElementById("question");
+
+let clicks = 0;
+
+button.addEventListener("click", function () {
+  clicks = clicks + 1;
+
+  if (clicks === 1) {
+    title.textContent = "oh hi there hehe ";
+    message.textContent = "i think i told you not to click.";
+    document.body.style.background = "white";
+  }
+
+  if (clicks === 2) {
+    title.textContent = "not again!";
+    message.textContent = "you must be curious.";
+    document.body.style.background = "white";
+  }
+
+  if (clicks === 3) {
+    title.textContent = "stop clicking!";
+    message.textContent = "Okay... now you're making me neurvous because i have nothing to say.";
+    document.body.style.background = "white";
+  }
+  
+  if (clicks === 4) {
+    title.textContent = "ummm let's try somthing!";
+    message.textContent = "click again.";
+    document.body.style.background = "white";
+  }
+  
+  if (clicks === 5) {
+    title.textContent = " see thats my favorite color!";
+    message.textContent = "one more trick for you.";
+    document.body.style.background = "pink";
+  }
+  
+  if (clicks === 6) {
+    title.textContent = "I have a question for you...";
+    message.textContent = "";
+    question.style.display = "block";
+    button.style.display = "none";
+  }
+
+});
+
+ document.getElementById("yesButton").addEventListener("click", function () {
+  question.style.display = "none";
+  sureQuestion.style.display = "block";
+
+  title.textContent = "Are you sure?";
+  message.textContent = "";
+});
+    
+ document.getElementById("noButton").addEventListener("click", function () {
+  question.style.display = "none";
+
+  title.textContent = "aw you broke my heart :(";
+  message.textContent = "get out of here you stinky";
+  message.style.fontSize = "2rem";
+});
+
+  document.getElementById("twentyFive").addEventListener("click", function () {
+  sureQuestion.style.display = "none";
+
+  title.textContent = "Hmm...";
+  message.textContent = "i am very disappointed :(";
+  message.style.fontSize = "3rem";
+});
+document.getElementById("fifty").addEventListener("click", function () {
+  sureQuestion.style.display = "none";
+
+  title.textContent = "Oh...";
+  message.textContent = "what happened to the other half :/";
+  message.style.fontSize = "3rem";
+});
+document.getElementById("oneHundred").addEventListener("click", function () {
+  sureQuestion.style.display = "none";
+
+  title.textContent = "Awwww";
+  message.textContent = "I love you even more ❤️";
+  message.style.fontSize = "3rem";
+});
+
+  </script>
+</body>
+</html>
